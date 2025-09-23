@@ -18,7 +18,7 @@ Script en Google Apps Script para enviar correos personalizados a partir de una 
 
 ````
 
-2. Entra en **Extensiones > Apps Script** y pega el contenido de `sendPersonalizedEmails.gs`.
+2. Entra en **Extensiones > Apps Script** y pega el contenido de `sendPersonalizedEmails.gs` (ajustando el correo, recomendable hacer un borrador y luego copiar el elemento HTML del correo, sin firma).
 
 3. Edita las variables principales:
 ```javascript
