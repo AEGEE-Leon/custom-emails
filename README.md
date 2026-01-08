@@ -1,38 +1,82 @@
-# Send Personalized Emails
+# Email Automation Scripts Repository
 
-Script en Google Apps Script para enviar correos personalizados a partir de una hoja de cálculo de Google Sheets.
+## Overview
 
-## Requisitos
-- Una hoja de cálculo en Google Sheets con columnas como:  
-  `Nombre`, `Email`, `TipoCarnet`, `FechaRecogida`, `Ciudad`, `País`, `Teléfono`, `TipoMiembro`, `Comentarios`.
-- Tener activado Google Apps Script en tu cuenta de Google.
-- Autorizar el acceso a Gmail y Google Sheets la primera vez que ejecutes el script.
+This repository is used to **store and organize scripts related to sending emails**, built with **Google Apps Script** and connected to **Google Sheets**.
+The scripts are intended for automating common communication tasks such as membership renewals, reminders, and notifications.
 
-## Uso
+Each folder groups scripts by **purpose or campaign**, making them easier to maintain, reuse, and update.
 
-1. Abre tu hoja de cálculo en Google Sheets.  
-   Copia el **ID del archivo** desde la URL:
+---
+
+## Repository Structure
+
+```text
+.
+├── renewals/
+│   └── Renovaciones 2026/
+│       └── sendPersonalizedEmailsRenovaciones.gs
+│
+├── cards/
+│   └── Pick up your card/
+│       └── sendPersonalizedEmails.gs
+│
+└── README.md
 ```
 
-[https://docs.google.com/spreadsheets/d/](https://docs.google.com/spreadsheets/d/)\<AQUI\_VA\_EL\_ID>/edit
+---
 
-````
+## Folder Description
 
-2. Entra en **Extensiones > Apps Script** y pega el contenido de `sendPersonalizedEmails.gs` (ajustando el correo, recomendable hacer un borrador y luego copiar el elemento HTML del correo, sin firma).
+### `renewals/`
 
-3. Edita las variables principales:
-```javascript
-const fileId = "ID_DE_TU_SHEET";
-const sheetName = "Hoja 1";
-const draftSubject = "Información de tu pedido";
-const boardName = "Tu Nombre";
-const boardSpot = "Tu Cargo";
-````
+Scripts related to **membership_renewal**.
 
-4. Guarda el proyecto y pulsa **▶ Ejecutar** en la función `sendPersonalizedEmails`.
+* **Renovaciones 2026/**
 
-Los correos se enviarán automáticamente a cada fila de la hoja, generando un mensaje personalizado con los datos de la persona.
+  * Automation for sending personalized renewal emails.
+  * Reads data from Google Sheets.
+  * Applies business logic (renewed, fee pending, zero fee, etc.).
+  * Sends HTML emails with payment instructions when applicable.
 
-## Notas
+---
 
-* El script incluye una firma automática (`createSignature`).
+### `pickup_ids_from_office/`
+
+Scripts related to **membership card management**.
+
+* **Pick up your card/**
+
+  * Sends reminder emails to members who have not yet collected their AEGEE card.
+  * Uses bilingual (Spanish / English) email content.
+  * Filters recipients based on a “pending card” column in Google Sheets.
+
+---
+
+## General Notes
+
+* All scripts:
+
+  * Are designed to be run from **Google Apps Script**.
+  * Read data from **Google Sheets**.
+  * Use `MailApp` to send emails.
+* Each script folder should include:
+
+  * The `.gs` file(s)
+  * A small README explaining how to configure and run the script
+
+---
+
+## Purpose of this Repository
+
+* Centralize all **email-related automation scripts**
+* Make scripts:
+
+  * Reusable
+  * Easy to audit
+  * Easy to adapt for future campaigns
+* Avoid duplication and reduce configuration errors
+
+---
+
+If you plan to add new scripts, create a new folder describing the campaign or purpose and include a short README explaining usage and configuration.
