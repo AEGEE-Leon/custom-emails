@@ -1,11 +1,10 @@
-# Mini README — “Renewals 2026” Script (Google Apps Script)
+# “Renewals 2026” Script (Google Apps Script)
 
 ## What it does
 
 This script iterates over a Google Sheets file and **sends a personalized HTML email** to each member **who has NOT renewed yet** and **has a calculated membership fee** (not “TBC”).
 It also **prints a summary to the logs** (how many rows were checked, how many already renewed, how many with TBC, etc.).
 
----
 
 ## Requirements
 
@@ -20,7 +19,7 @@ It also **prints a summary to the logs** (how many rows were checked, how many a
 
 ![](img/sheet_example.png)
 
----
+
 
 ## Quick setup (things you can change)
 
@@ -32,7 +31,7 @@ Inside `sendPersonalizedEmailsRenovaciones()` you must adjust:
 * **Signature**: `boardName`, `boardPronouns`, `boardSpot`
 * **Column names**: `columnaRenovacion`, `columnaImporte`, etc. for easier configuration and remove chance for error
 
----
+
 
 ## Sending logic (important)
 
@@ -47,7 +46,7 @@ For each row:
    * payment concept: `RENEWAL FirstName LastName`
    * IBAN + instructions + link to the form
 
----
+
 
 ## How to run it
 
@@ -61,7 +60,7 @@ For each row:
    * access to Google Sheets
    * permission to send emails (MailApp)
 
----
+
 
 ## Viewing results / debugging
 
@@ -71,7 +70,7 @@ For each row:
   * which emails were sent
   * the final execution summary
 
----
+
 
 ## Recommendations before “production”
 
@@ -82,7 +81,7 @@ For each row:
 * Make sure the `E-mail.` column has no empty cells (MailApp will fail otherwise).
 * Keep Gmail / Apps Script daily sending limits in mind if the list is large. (Sending limit is 100 per day for @gmail.com accouts)
 
----
+
 
 ## Helper functions
 
